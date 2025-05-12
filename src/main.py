@@ -30,13 +30,11 @@ class MyServer(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    # Инициализация веб-сервера, который будет по заданным параметрах в сети
-    # принимать запросы и отправлять их на обработку специальному классу, который был описан выше
     webServer = HTTPServer((hostName, serverPort), MyServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
-        # Cтарт веб-сервера в бесконечном цикле прослушивания входящих запросов
+        # Старт веб-сервера в бесконечном цикле прослушивания входящих запросов
         webServer.serve_forever()
     except KeyboardInterrupt:
         # Корректный способ остановить сервер в консоли через сочетание клавиш Ctrl + C
